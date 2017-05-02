@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -16,6 +17,41 @@ namespace MvcRequestLifeCycle
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
+        }
+
+        protected void Application_BeginRequest()
+        {
+            Debug.WriteLine("Begin Request");
+        }
+
+        protected void Application_MapRequestHandler()
+        {
+            Debug.WriteLine("Map Handler");
+        }
+
+        protected void Application_PostMapRequestHandler()
+        {
+            Debug.WriteLine("Post Map Handler");
+        }
+
+        protected void Application_AcquireRequestState()
+        {
+            Debug.WriteLine("Request state");
+        }
+
+        protected void Application_PreRequestHandlerExecute()
+        {
+            Debug.WriteLine("Pre Handler Execute");
+        }
+
+        protected void Application_PostRequestHandlerExecute()
+        {
+            Debug.WriteLine("Post Handler Execute");
+        }
+
+        protected void Application_EndRequest()
+        {
+            Debug.WriteLine("EndRequest");
         }
     }
 }
