@@ -13,6 +13,8 @@ namespace MvcRequestLifeCycle
     {
         protected void Application_Start()
         {
+            ControllerBuilder.Current.SetControllerFactory(new ParameterControllerFactory());
+
             AreaRegistration.RegisterAllAreas();
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
