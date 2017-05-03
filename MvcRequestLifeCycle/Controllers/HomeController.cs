@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MvcRequestLifeCycle.Extensions;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -26,5 +27,12 @@ namespace MvcRequestLifeCycle.Controllers
 
             return View();
         }
+
+        [IsMobile]
+        public JsonResult Register()
+        {
+            return Json("{Message: Display on Mobile Devices}");
+        }
+       
     }
 }
