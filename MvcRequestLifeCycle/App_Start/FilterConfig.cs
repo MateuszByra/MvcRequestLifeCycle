@@ -8,6 +8,7 @@ namespace MvcRequestLifeCycle
         public static void RegisterGlobalFilters(GlobalFilterCollection filters)
         {
             filters.Add(new HandleErrorAttribute());
+            filters.Add(new ActionFilter3()); // add filter on global level
         }
     }
 }
