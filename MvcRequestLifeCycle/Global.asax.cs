@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MvcRequestLifeCycle.Extensions;
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
@@ -19,6 +20,7 @@ namespace MvcRequestLifeCycle
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
+            ViewEngines.Engines.Insert(0,new ThemeViewEngine());
         }
 
         protected void Application_BeginRequest()
