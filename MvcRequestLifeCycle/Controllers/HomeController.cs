@@ -1,4 +1,5 @@
 ﻿using MvcRequestLifeCycle.Extensions;
+using MvcRequestLifeCycle.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -36,6 +37,16 @@ namespace MvcRequestLifeCycle.Controllers
         public JsonResult Register()
         {
             return Json("{Message: Display on Mobile Devices}");
+        }
+
+        public ActionResult MyJsonResult()
+        {
+            var person = new Person { FirstName = "Bob", LastName = "John", Age = 24 };
+            return JsonNet(person);
+        }
+        private ActionResult JsonNet(object data)
+        {
+            return new JsonNETResult() { Data = data };
         }
        
     }
